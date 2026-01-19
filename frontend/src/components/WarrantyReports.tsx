@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { format } from 'date-fns'
 import api from '../services/api'
 import { Record, RecordListResponse, WarrantySummary } from '../types'
-import ExportButtons from './ExportButtons'
 
 function WarrantyReports() {
   const [summary, setSummary] = useState<WarrantySummary | null>(null)

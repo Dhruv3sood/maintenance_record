@@ -358,7 +358,7 @@ function SalesSummary() {
                     tick={{ fill: '#6b7280' }}
                   />
                   <Tooltip 
-                    formatter={(value: number) => `₹${Math.round(value).toLocaleString()}`}
+                    formatter={(value: number | undefined) => value ? `₹${Math.round(value).toLocaleString()}` : '₹0'}
                     contentStyle={{ 
                       backgroundColor: '#ffffff',
                       border: '1px solid #e5e7eb',
@@ -401,7 +401,7 @@ function SalesSummary() {
                       width={80}
                     />
                     <Tooltip 
-                      formatter={(value: number) => `₹${Math.round(value).toLocaleString()}`}
+                      formatter={(value: number | undefined) => value ? `₹${Math.round(value).toLocaleString()}` : '₹0'}
                       contentStyle={{ 
                         backgroundColor: '#ffffff',
                         border: '1px solid #e5e7eb',
@@ -450,7 +450,11 @@ function SalesSummary() {
                       cx="50%"
                       cy="50%"
                       labelLine={false}
-                      label={({ source, percent }) => `${source}: ${(percent * 100).toFixed(0)}%`}
+                      label={(props: any) => {
+                        const name = props.name || ''
+                        const percent = props.percent || 0
+                        return `${name}: ${(percent * 100).toFixed(0)}%`
+                      }}
                       outerRadius={100}
                       fill="#8884d8"
                       dataKey="revenue"
@@ -460,7 +464,7 @@ function SalesSummary() {
                       ))}
                     </Pie>
                     <Tooltip 
-                      formatter={(value: number) => `₹${Math.round(value).toLocaleString()}`}
+                      formatter={(value: number | undefined) => value ? `₹${Math.round(value).toLocaleString()}` : '₹0'}
                       contentStyle={{ 
                         backgroundColor: '#ffffff',
                         border: '1px solid #e5e7eb',

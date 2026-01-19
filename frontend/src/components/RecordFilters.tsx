@@ -22,7 +22,7 @@ interface FilterOptions {
 function RecordFiltersComponent({ filters, onFiltersChange, showDateRange = false }: RecordFiltersProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [localFilters, setLocalFilters] = useState<RecordFiltersType>(filters)
-  const searchDebounceTimer = useRef<NodeJS.Timeout | null>(null)
+  const searchDebounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const [filterOptions, setFilterOptions] = useState<FilterOptions>({
     zones: [],
     capacity_kw: [],

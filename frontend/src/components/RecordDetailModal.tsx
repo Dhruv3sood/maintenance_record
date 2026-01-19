@@ -9,7 +9,7 @@ interface RecordDetailModalProps {
   onClose: () => void
   onEdit: (id: number) => void
   onDelete: (id: number) => void
-  onViewRecord?: (record: Record) => void
+  onViewRecord?: (record: Record) => void  // eslint-disable-line @typescript-eslint/no-unused-vars
 }
 
 function RecordDetailModal({ record, isOpen, onClose, onEdit, onDelete, onViewRecord }: RecordDetailModalProps) {
