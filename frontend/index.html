@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maintenance CRM + Sales Report</title>
+    <script>
+      // CRITICAL: Set LIGHT mode as default BEFORE React loads
+      (function() {
+        const html = document.documentElement;
+        const saved = localStorage.getItem('darkMode');
+        
+        // FORCE remove dark class first (ensures light mode)
+        html.classList.remove('dark');
+        
+        // Only apply dark mode if explicitly saved as 'true'
+        if (saved === 'true') {
+          html.classList.add('dark');
+        }
+        // Otherwise, stay in light mode (dark class already removed above)
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
