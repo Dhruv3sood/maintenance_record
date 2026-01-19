@@ -3,8 +3,8 @@ services:
     name: maintenance-crm-api
     runtime: python
     plan: free
-    buildCommand: pip install -r requirements.txt && alembic upgrade head
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    buildCommand: pip install -r requirements.txt
+    startCommand: alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: MAINTENANCE_PASSCODE
         sync: false  # Set this in Render dashboard
